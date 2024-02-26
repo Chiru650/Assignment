@@ -1,0 +1,62 @@
+/* View.css */
+
+.product-view {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.product {
+    width: 400px;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #3498db;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product h3 {
+    color: #3498db;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.product p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.product p:last-child {
+    font-weight: bold;
+    color: #e74c3c; /* Red color for discount */
+}
+
+.product p.discount {
+    color: #27ae60; /* Green color for discount */
+}
+
+.product a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.product a:hover {
+    color: #1f618d; /* Darker blue on hover */
+}

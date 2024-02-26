@@ -1,0 +1,68 @@
+<html lang="en">
+    <head>
+        <title>Login Form</title>
+    </head>
+    <link rel="stylesheet" href="style.css">
+    <body>
+
+        <div class="gcontainer">
+            <div class="loginform">
+                <center><h1 style="text-align:center">LOGIN</h1></center>
+                <center>
+                    <div class="form-content">
+                        <label for="username">Emailid:</label>
+                        <br/>
+                        <input type="email" id="username">
+                    </div>
+                    <br/>
+                    <div class="form-content">
+                        <label for="password">Password:</label>
+                        <br/>
+                        <input type="password" id="password">
+                    </div>
+                    <br/>
+                    <br/>
+                    <button type="submit" class="btn" onclick="login()">Submit</button>
+                    <br/>
+                    <br/>
+                    <button type="reset" class="btn">Clear</button>
+                </center>
+            </div>
+        </div>
+        <div id="serverres"></div>
+        <script>
+            function login() {
+                // fetch('http://127.0.0.1:3001/details')
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const data = { username, password };
+
+            fetch('http://127.0.0.1:3001/details', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        alert('login failed');
+                        throw Error('Login failed.');
+                    }
+                    return response.text() 
+                })
+                .then(data => {
+        // Handle successful login response
+                alert('login succesfull');
+                // document.getElementById('serverres').textContent=data;
+                window.location.href = 'welcome.html?username=' + data.username;
+            })
+            .catch(error => {
+        // Handle errors
+            console.error('Error is being formed:', error);
+            });
+        }
+        </script>
+
+    </body>
+</html>
